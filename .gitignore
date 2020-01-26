@@ -2,3 +2,5 @@ BudgetApp.*
 budgetAppPlan.*
 *.mm
 *.pdf
+bin/
+obj/
