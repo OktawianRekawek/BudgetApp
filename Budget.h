@@ -3,11 +3,12 @@
 
 
 #include <iostream>
+#include "UserManager.h"
 
 using namespace std;
 
 class Budget {
-    //UserManager userManager;
+    UserManager userManager;
     //RecordManager *incomeManager;
     //RecordManager *expanseManager;
     //const string INCOMES_FILENAME;
