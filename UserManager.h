@@ -25,6 +25,7 @@ public:
     ~UserManager();
     void userRagistration();
     void userLogin();
+    void displayAllUsers();
     //void changeLoggedUserPassword();
    // void userLogout();
    // void displayAllUsers();

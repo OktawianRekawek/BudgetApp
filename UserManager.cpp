@@ -8,6 +8,16 @@ UserManager::~UserManager(){
     cout << "UserManager dekonstruktor" << endl;
 }
 
+void UserManager::displayAllUsers() {
+    for (int i = 0; i < users.size(); i++) {
+        cout << users[i].getID() << endl;
+        cout << users[i].getLogin() << endl;
+        cout << users[i].getPassword() << endl;
+        cout << users[i].getName() << endl;
+        cout << users[i].getSurname() << endl;
+    }
+}
+
 void UserManager::userRagistration(){
     User user = passNewUserData();
     users.push_back(user);
@@ -18,8 +28,34 @@ void UserManager::userRagistration(){
 }
 
 void UserManager::userLogin(){
-    cout << "Logowania uzytkownika" << endl;
-    loggedUserID = 1;
+    string login = "", password = "";
+    system("cls");
+    cout << "Podaj login: ";
+    login = SubsidiaryMethods::readLine();
+
+    vector <User>::iterator itr = users.begin();
+    while (itr != users.end()) {
+        if (itr -> getLogin() == login) {
+            for (int tries = 3; tries > 0; tries--) {
+                cout << "Podaj haslo. Pozostalo prob: " << tries << ": ";
+                password = SubsidiaryMethods::readLine();
+
+                if (itr -> getPassword() == password) {
+                    loggedUserID = itr -> getID();
+                    cout << endl << "Zalogowales sie." << endl << endl;
+                    system("pause");
+                    return;
+                }
+            }
+            cout << "Wprowadzono 3 razy bledne haslo." << endl;
+            system("pause");
+            return;
+        }
+        itr++;
+    }
+    cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
+    system("pause");
+    return;
 }
 
 User UserManager::passNewUserData() {

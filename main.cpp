@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Budget.h"
 #include "User.h"
+#include "UserManager.h"
 
 using namespace std;
 
-int main() {
+int main__() {
     Budget budget;
 
     budget.userRagistration();
@@ -37,6 +38,17 @@ int main_() {
     cout << user.getPassword() << endl;
     cout << user.getName() << endl;
     cout << user.getSurname() << endl;
+
+    return 0;
+}
+
+int main(){
+
+    UserManager userManager;
+
+    userManager.userRagistration();
+    userManager.displayAllUsers();
+    userManager.userLogin();
 
     return 0;
 }
