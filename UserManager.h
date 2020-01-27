@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "User.h"
+#include "SubsidiaryMethods.h"
 
 using namespace std;
 
@@ -15,9 +16,9 @@ class UserManager {
     vector<User> users;
     //UsersFie usersFile;
 
-    //User passNewUserData();
-//    int getNewUserID();
-//    bool isLoginExist();
+    User passNewUserData();
+    int getNewUserID();
+    bool isLoginExist(string);
 
 public:
     UserManager();

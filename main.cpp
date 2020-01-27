@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int main_() {
+int main() {
     Budget budget;
 
     budget.userRagistration();
@@ -23,7 +23,7 @@ int main_() {
     return 0;
 }
 
-int main() {
+int main_() {
     User user;
 
     user.setID(1);
@@ -37,4 +37,6 @@ int main() {
     cout << user.getPassword() << endl;
     cout << user.getName() << endl;
     cout << user.getSurname() << endl;
+
+    return 0;
 }
