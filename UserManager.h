@@ -3,18 +3,21 @@
 
 
 #include <iostream>
+#include <vector>
+
+#include "User.h"
 
 using namespace std;
 
 class UserManager {
 
     int loggedUserID;
-    //vector<User> users;
+    vector<User> users;
     //UsersFie usersFile;
 
     //User passNewUserData();
-    int getNewUserID();
-    bool isLoginExist();
+//    int getNewUserID();
+//    bool isLoginExist();
 
 public:
     UserManager();
