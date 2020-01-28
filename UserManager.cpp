@@ -9,7 +9,7 @@ UserManager::~UserManager(){
 }
 
 void UserManager::displayAllUsers() {
-    for (int i = 0; i < users.size(); i++) {
+    for (unsigned int i = 0; i < users.size(); i++) {
         cout << users[i].getID() << endl;
         cout << users[i].getLogin() << endl;
         cout << users[i].getPassword() << endl;
@@ -96,7 +96,7 @@ int UserManager::getNewUserID() {
 
 bool UserManager::isLoginExist(string login) {
 
-    for (int i = 0; i < users.size(); i++) {
+    for (unsigned int i = 0; i < users.size(); i++) {
         if (users[i].getLogin() == login) {
             cout << endl << "Istnieje uzytkownik o takim loginie." << endl;
             return true;
