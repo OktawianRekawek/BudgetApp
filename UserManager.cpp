@@ -104,3 +104,18 @@ bool UserManager::isLoginExist(string login) {
     }
     return false;
 }
+
+void UserManager::changeLoggedUserPassword() {
+    string newPassword = "";
+    cout << "Podaj nowe haslo: ";
+    newPassword = SubsidiaryMethods::readLine();
+
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if (itr -> getID() == loggedUserID) {
+            itr -> setPassword(newPassword);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}

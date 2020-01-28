@@ -26,7 +26,7 @@ public:
     void userRagistration();
     void userLogin();
     void displayAllUsers();
-    //void changeLoggedUserPassword();
+    void changeLoggedUserPassword();
    // void userLogout();
    // void displayAllUsers();
    // void readUsersFromFile();

@@ -49,6 +49,7 @@ int main(){
     userManager.userRagistration();
     userManager.displayAllUsers();
     userManager.userLogin();
+    userManager.changeLoggedUserPassword();
 
     return 0;
 }
