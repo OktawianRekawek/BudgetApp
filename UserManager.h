@@ -27,7 +27,7 @@ public:
     void userLogin();
     void displayAllUsers();
     void changeLoggedUserPassword();
-   // void userLogout();
+    void userLogout();
    // void displayAllUsers();
    // void readUsersFromFile();
 };

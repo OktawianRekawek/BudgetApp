@@ -50,6 +50,7 @@ int main(){
     userManager.displayAllUsers();
     userManager.userLogin();
     userManager.changeLoggedUserPassword();
+    userManager.userLogout();
 
     return 0;
 }

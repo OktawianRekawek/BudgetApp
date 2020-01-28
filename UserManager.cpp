@@ -119,3 +119,9 @@ void UserManager::changeLoggedUserPassword() {
     }
     //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
+
+void UserManager::userLogout() {
+    loggedUserID = 0;
+    cout << endl << "Wylogowales sie." << endl << endl;
+    system("pause");
+}
