@@ -9,7 +9,7 @@ Budget::~Budget(){
 }
 
 void Budget::userRagistration(){
-    cout << "Rejestracja uzytkownika" << endl;
+    userManager.userRagistration();
 }
 
 void Budget::userLogin(){
