@@ -3,6 +3,7 @@
 #include "User.h"
 #include "UserManager.h"
 #include "Record.h"
+#include "RecordManager.h"
 
 using namespace std;
 
@@ -56,7 +57,7 @@ int main_userManager(){
     return 0;
 }
 
-int main() {
+int main_Record() {
     Record record;
 
     record.setRecordID(1);
@@ -70,6 +71,16 @@ int main() {
     cout << record.getDate() << endl;
     cout << record.getItem() << endl;
     cout << record.getAmount() << endl;
+
+    return 0;
+}
+
+int main(){
+
+    RecordManager recordManager = RecordManager(1);
+
+    recordManager.addRecord();
+    recordManager.displayAllRecords();
 
     return 0;
 }

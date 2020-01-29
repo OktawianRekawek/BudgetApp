@@ -12,15 +12,17 @@ using namespace std;
 
 class RecordManager {
 
-    vector<Record> recordes;
+    vector<Record> records;
     const int LOGGED_USER_ID;
     //RecordsFile recordsFile;
 
+    Record passNewRecordData();
 
 public:
-    RecordManager();
+    RecordManager(int);
     ~RecordManager();
-//    void addRecord();
+    void addRecord();
+    void displayAllRecords();
 //    void readLoggedUserRecordsFromFile();
 //    void displayThisMonthRecords();
 //    void displayPreviousMonthRecords();
