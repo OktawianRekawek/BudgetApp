@@ -4,6 +4,7 @@
 #include "UserManager.h"
 #include "Record.h"
 #include "RecordManager.h"
+#include "Date.h"
 
 using namespace std;
 
@@ -75,7 +76,7 @@ int main_Record() {
     return 0;
 }
 
-int main(){
+int main_recordManager(){
 
     RecordManager recordManager = RecordManager(1);
 
@@ -83,4 +84,17 @@ int main(){
     recordManager.displayAllRecords();
 
     return 0;
+}
+
+int main(){
+    Date::checkDate("2020-01-32");
+    Date::checkDate("2020-04-31");
+    Date::checkDate("2020-02-30");
+    Date::checkDate("2019-02-29");
+
+    cout << Date::checkDateFormat("2020-01-31") << endl;
+    cout << Date::checkDateFormat("20a0-01-31") << endl;
+    cout << Date::checkDateFormat("2020-01-1o") << endl;
+    cout << Date::checkDateFormat("22020-1-01") << endl;
+    cout << Date::checkDateFormat("920-01-31") << endl;
 }
