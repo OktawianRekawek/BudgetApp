@@ -76,7 +76,7 @@ int main_Record() {
     return 0;
 }
 
-int main_recordManager(){
+int main(){
 
     RecordManager recordManager = RecordManager(1);
 
@@ -86,7 +86,7 @@ int main_recordManager(){
     return 0;
 }
 
-int main(){
+int main_date(){
     Date::checkDate("2020-01-32");
     Date::checkDate("2020-04-31");
     Date::checkDate("2020-02-30");
@@ -97,4 +97,13 @@ int main(){
     cout << Date::checkDateFormat("2020-01-1o") << endl;
     cout << Date::checkDateFormat("22020-1-01") << endl;
     cout << Date::checkDateFormat("920-01-31") << endl;
+
+    cout << Date::isCorrectDate("2020-01-31") << endl;
+    cout << Date::isCorrectDate("2020-01-32") << endl;
+    cout << Date::isCorrectDate("2020-02-30") << endl;
+    cout << Date::isCorrectDate("22020-1-01") << endl;
+    cout << Date::isCorrectDate("20a0-01-31") << endl;
+
+    cout << Date::convertDateFromStringToInt("2020-01-31") << endl;
+    return 0;
 }

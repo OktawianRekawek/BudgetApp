@@ -7,6 +7,7 @@
 
 #include "Record.h"
 #include "SubsidiaryMethods.h"
+#include "Date.h"
 
 using namespace std;
 

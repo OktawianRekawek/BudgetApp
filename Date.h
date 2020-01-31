@@ -18,6 +18,8 @@ public:
     static bool checkDate(string);
     static bool isCorrectDay(int, int, int);
     static bool checkDateFormat(string);
+    static bool isCorrectDate(string);
+    static int convertDateFromStringToInt(string);
 };
 
 #endif // DATE_H

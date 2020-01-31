@@ -27,16 +27,18 @@ void RecordManager::addRecord() {
 Record RecordManager::passNewRecordData() {
     Record record;
 
-    int date = 20200129;
-    string item, dateString;
-    double amount;
+    int date = 0;
+    string item = "", dateString = "";
+    double amount = 0;
 
     record.setRecordID(0+1);
     record.setUserID(LOGGED_USER_ID);
 
-//    cout << "Podaj date w formacie yyyy-mm-dd: ";
-//    dateString = SubsidiaryMethods::readLine();
-    //imie = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(imie);
+    do {
+        cout << "Podaj date w formacie yyyy-mm-dd: ";
+        dateString = SubsidiaryMethods::readLine();
+    } while(!Date::isCorrectDate(dateString));
+    date = Date::convertDateFromStringToInt(dateString);
     record.setDate(date);
 
     cout << "Podaj nazwe: ";

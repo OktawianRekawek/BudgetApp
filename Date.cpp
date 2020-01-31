@@ -1,5 +1,16 @@
 #include "Date.h"
 
+bool Date::isCorrectDate(string date){
+    if (!checkDateFormat(date)){
+        cout << "Data ma nieprawidlowy format!" << endl;
+        return false;
+    }
+    if (!checkDate(date))
+        return false;
+
+    return true;
+}
+
 bool Date::checkDateFormat(string dateString) {
 
     if (dateString.length() != 10)
@@ -90,4 +101,15 @@ bool Date::isCorrectDay(int year, int month, int day) {
         break;
     }
     return true;
+}
+
+int Date::convertDateFromStringToInt(string dateString){
+    string dateWithoutSeparators = "";
+    int date = 0;
+    for (unsigned int i = 0; i < dateString.length(); i++){
+        if (dateString[i] != '-')
+            dateWithoutSeparators += dateString[i];
+    }
+    date = atoi(dateWithoutSeparators.c_str());
+    return date;
 }
