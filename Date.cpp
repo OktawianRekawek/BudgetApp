@@ -113,3 +113,52 @@ int Date::convertDateFromStringToInt(string dateString){
     date = atoi(dateWithoutSeparators.c_str());
     return date;
 }
+
+int Date::getThisYear(){
+
+    time_t currentTime;
+    struct tm * timeInfo;
+
+    time(&currentTime);
+    timeInfo = localtime(&currentTime);
+
+    return 2000 + timeInfo->tm_year - 100;
+}
+
+int Date::getThisMonth(){
+
+    time_t currentTime;
+    struct tm * timeInfo;
+
+    time(&currentTime);
+    timeInfo = localtime(&currentTime);
+
+    return timeInfo->tm_mon + 1;
+}
+
+int Date::getNumberOfMonthDays(int year, int month){
+
+    int numberOfDays = 0;
+    switch (month) {
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        numberOfDays = 31;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        numberOfDays = 30;
+    case 2:
+        if (((year%4 == 0) && (year%100 != 0)) || (year%400 == 0))
+            numberOfDays = 29;
+        else
+            numberOfDays = 28;
+    }
+
+    return numberOfDays;
+}

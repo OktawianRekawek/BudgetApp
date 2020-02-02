@@ -23,9 +23,10 @@ public:
     RecordManager(int);
     ~RecordManager();
     void addRecord();
+    void displayRecord(Record);
     void displayAllRecords();
 //    void readLoggedUserRecordsFromFile();
-//    void displayThisMonthRecords();
+    void displayThisMonthRecords();
 //    void displayPreviousMonthRecords();
 //    void displaySelectedPeriodRecords();
 //    void displayRecordsSummary();

@@ -52,13 +52,30 @@ Record RecordManager::passNewRecordData() {
     return record;
 }
 
+void RecordManager::displayRecord(Record record){
+    cout << record.getRecordID() << endl;
+    cout << record.getUserID() << endl;
+    cout << record.getDate() << endl;
+    cout << record.getItem() << endl;
+    cout << record.getAmount() << endl;
+}
+
 void RecordManager::displayAllRecords(){
     for (unsigned int i = 0; i < records.size(); i++)
-    {
-        cout << records[i].getRecordID() << endl;
-        cout << records[i].getRecordID() << endl;
-        cout << records[i].getDate() << endl;
-        cout << records[i].getItem() << endl;
-        cout << records[i].getAmount() << endl;
+        displayRecord(records[i]);
+}
+
+void RecordManager::displayThisMonthRecords(){
+
+    int thisYear = 0, thisMonth = 0;
+
+    thisYear = Date::getThisYear();
+    thisMonth = Date::getThisMonth();
+
+    for (unsigned int i = 0; i <= records.size(); i++){
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
+            displayRecord(records[i]);
     }
+    cout << thisYear << endl;
+    cout << thisMonth << endl;
 }
