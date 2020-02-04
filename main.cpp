@@ -61,14 +61,12 @@ int main_userManager(){
 int main_Record() {
     Record record;
 
-    record.setRecordID(1);
     record.setUserID(1);
     record.setDate(20200128);
     record.setItem("XBOX");
     record.setAmount(1000);
 
-    cout << record.getRecordID() << endl;
-    cout << record.getRecordID() << endl;
+    cout << record.getUserID() << endl;
     cout << record.getDate() << endl;
     cout << record.getItem() << endl;
     cout << record.getAmount() << endl;

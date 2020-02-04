@@ -31,7 +31,6 @@ Record RecordManager::passNewRecordData() {
     string item = "", dateString = "";
     double amount = 0;
 
-    record.setRecordID(0+1);
     record.setUserID(LOGGED_USER_ID);
 
     do {
@@ -53,7 +52,6 @@ Record RecordManager::passNewRecordData() {
 }
 
 void RecordManager::displayRecord(Record record){
-    cout << record.getRecordID() << endl;
     cout << record.getUserID() << endl;
     cout << record.getDate() << endl;
     cout << record.getItem() << endl;
