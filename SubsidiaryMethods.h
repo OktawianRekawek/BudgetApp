@@ -15,6 +15,7 @@ class SubsidiaryMethods {
 public:
 //    static string konwerjsaIntNaString(int);
     static string readLine();
+    static double readDoubleNumber();
 //    static string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string);
 //    static string pobierzLiczbe(string, int);
 //    static int konwersjaStringNaInt(string);
