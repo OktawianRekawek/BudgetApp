@@ -76,6 +76,23 @@ void RecordManager::displayThisMonthRecords(){
         if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
             displayRecord(records[i]);
     }
-    cout << thisYear << endl;
-    cout << thisMonth << endl;
+}
+
+void RecordManager::displayPreviousMonthRecords(){
+
+    int thisYear = 0, thisMonth = 0;
+
+    thisYear = Date::getThisYear();
+    thisMonth = Date::getThisMonth();
+
+    if (thisMonth == 1){
+        thisMonth = 12;
+        thisYear -= 1;
+    } else
+        thisMonth -= 1;
+
+    for (unsigned int i = 0; i <= records.size(); i++){
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
+            displayRecord(records[i]);
+    }
 }

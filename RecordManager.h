@@ -27,7 +27,7 @@ public:
     void displayAllRecords();
 //    void readLoggedUserRecordsFromFile();
     void displayThisMonthRecords();
-//    void displayPreviousMonthRecords();
+    void displayPreviousMonthRecords();
 //    void displaySelectedPeriodRecords();
 //    void displayRecordsSummary();
 };
