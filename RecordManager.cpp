@@ -39,11 +39,7 @@ Record RecordManager::passNewRecordData() {
     if (character == 't'){
         date = Date::getActualDate();
     } else {
-        do {
-            cout << "Podaj date w formacie yyyy-mm-dd: ";
-            dateString = SubsidiaryMethods::readLine();
-        } while(!Date::isCorrectDate(dateString));
-        date = Date::convertDateFromStringToInt(dateString);
+        date = Date::getDate();
     }
     record.setDate(date);
 
@@ -109,21 +105,21 @@ void RecordManager::displayPreviousMonthRecords(){
 
 void RecordManager::displaySelectedPeriodRecords(){
 
-    int thisYear = 0, thisMonth = 0;
+    int firstDate, secondDate;
 
-    thisYear = Date::getThisYear();
-    thisMonth = Date::getThisMonth();
+    cout << "Podaj pierwsza date!" << endl;
+    firstDate = Date::getDate();
+    cout << "Podaj druga date!" << endl;
+    secondDate = Date::getDate();
 
-    if (thisMonth == 1){
-        thisMonth = 12;
-        thisYear -= 1;
-    } else
-        thisMonth -= 1;
-
-    cout << "Data     Nazwa     Wartosc" << endl;
-    cout << "--------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
-            displayRecord(records[i]);
+    if (Date::compareDates(firstDate, secondDate)){
+        cout << "Data     Nazwa     Wartosc" << endl;
+        cout << "--------------------------" << endl;
+        for (unsigned int i = 0; i <= records.size(); i++){
+            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate)
+                displayRecord(records[i]);
+        }
+    } else {
+        cout << "Druga data jest przed pierwsza!" << endl;
     }
 }

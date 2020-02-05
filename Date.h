@@ -9,6 +9,8 @@
 #include <algorithm>
 #include <time.h>
 
+#include "SubsidiaryMethods.h"
+
 using namespace std;
 
 class Date {
@@ -25,6 +27,8 @@ public:
     static int getThisMonth();
     static int getNumberOfMonthDays(int, int);
     static int getActualDate();
+    static int getDate();
+    static bool compareDates(int, int);
 };
 
 #endif // DATE_H

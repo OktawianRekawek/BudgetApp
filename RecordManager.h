@@ -28,7 +28,7 @@ public:
 //    void readLoggedUserRecordsFromFile();
     void displayThisMonthRecords();
     void displayPreviousMonthRecords();
-//    void displaySelectedPeriodRecords();
+    void displaySelectedPeriodRecords();
 //    void displayRecordsSummary();
 };
 #endif //RECORDMANAGER_H
