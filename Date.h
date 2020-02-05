@@ -24,6 +24,7 @@ public:
     static int getThisYear();
     static int getThisMonth();
     static int getNumberOfMonthDays(int, int);
+    static int getActualDate();
 };
 
 #endif // DATE_H

@@ -61,14 +61,12 @@ int main_userManager(){
 int main_Record() {
     Record record;
 
-    record.setRecordID(1);
     record.setUserID(1);
     record.setDate(20200128);
     record.setItem("XBOX");
     record.setAmount(1000);
 
-    cout << record.getRecordID() << endl;
-    cout << record.getRecordID() << endl;
+    cout << record.getUserID() << endl;
     cout << record.getDate() << endl;
     cout << record.getItem() << endl;
     cout << record.getAmount() << endl;
@@ -90,24 +88,25 @@ int main(){
     return 0;
 }
 
-int main_date(){
-    Date::checkDate("2020-01-32");
-    Date::checkDate("2020-04-31");
-    Date::checkDate("2020-02-30");
-    Date::checkDate("2019-02-29");
-
-    cout << Date::checkDateFormat("2020-01-31") << endl;
-    cout << Date::checkDateFormat("20a0-01-31") << endl;
-    cout << Date::checkDateFormat("2020-01-1o") << endl;
-    cout << Date::checkDateFormat("22020-1-01") << endl;
-    cout << Date::checkDateFormat("920-01-31") << endl;
-
-    cout << Date::isCorrectDate("2020-01-31") << endl;
-    cout << Date::isCorrectDate("2020-01-32") << endl;
-    cout << Date::isCorrectDate("2020-02-30") << endl;
-    cout << Date::isCorrectDate("22020-1-01") << endl;
-    cout << Date::isCorrectDate("20a0-01-31") << endl;
-
-    cout << Date::convertDateFromStringToInt("2020-01-31") << endl;
+int main_Date(){
+//    Date::checkDate("2020-01-32");
+//    Date::checkDate("2020-04-31");
+//    Date::checkDate("2020-02-30");
+//    Date::checkDate("2019-02-29");
+//
+//    cout << Date::checkDateFormat("2020-01-31") << endl;
+//    cout << Date::checkDateFormat("20a0-01-31") << endl;
+//    cout << Date::checkDateFormat("2020-01-1o") << endl;
+//    cout << Date::checkDateFormat("22020-1-01") << endl;
+//    cout << Date::checkDateFormat("920-01-31") << endl;
+//
+//    cout << Date::isCorrectDate("2020-01-31") << endl;
+//    cout << Date::isCorrectDate("2020-01-32") << endl;
+//    cout << Date::isCorrectDate("2020-02-30") << endl;
+//    cout << Date::isCorrectDate("22020-1-01") << endl;
+//    cout << Date::isCorrectDate("20a0-01-31") << endl;
+//
+//    cout << Date::convertDateFromStringToInt("2020-01-31") << endl;
+    cout << Date::getActualDate() << endl;
     return 0;
 }
