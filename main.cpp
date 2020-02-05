@@ -88,24 +88,25 @@ int main(){
     return 0;
 }
 
-int main_date(){
-    Date::checkDate("2020-01-32");
-    Date::checkDate("2020-04-31");
-    Date::checkDate("2020-02-30");
-    Date::checkDate("2019-02-29");
-
-    cout << Date::checkDateFormat("2020-01-31") << endl;
-    cout << Date::checkDateFormat("20a0-01-31") << endl;
-    cout << Date::checkDateFormat("2020-01-1o") << endl;
-    cout << Date::checkDateFormat("22020-1-01") << endl;
-    cout << Date::checkDateFormat("920-01-31") << endl;
-
-    cout << Date::isCorrectDate("2020-01-31") << endl;
-    cout << Date::isCorrectDate("2020-01-32") << endl;
-    cout << Date::isCorrectDate("2020-02-30") << endl;
-    cout << Date::isCorrectDate("22020-1-01") << endl;
-    cout << Date::isCorrectDate("20a0-01-31") << endl;
-
-    cout << Date::convertDateFromStringToInt("2020-01-31") << endl;
+int main_Date(){
+//    Date::checkDate("2020-01-32");
+//    Date::checkDate("2020-04-31");
+//    Date::checkDate("2020-02-30");
+//    Date::checkDate("2019-02-29");
+//
+//    cout << Date::checkDateFormat("2020-01-31") << endl;
+//    cout << Date::checkDateFormat("20a0-01-31") << endl;
+//    cout << Date::checkDateFormat("2020-01-1o") << endl;
+//    cout << Date::checkDateFormat("22020-1-01") << endl;
+//    cout << Date::checkDateFormat("920-01-31") << endl;
+//
+//    cout << Date::isCorrectDate("2020-01-31") << endl;
+//    cout << Date::isCorrectDate("2020-01-32") << endl;
+//    cout << Date::isCorrectDate("2020-02-30") << endl;
+//    cout << Date::isCorrectDate("22020-1-01") << endl;
+//    cout << Date::isCorrectDate("20a0-01-31") << endl;
+//
+//    cout << Date::convertDateFromStringToInt("2020-01-31") << endl;
+    cout << Date::getActualDate() << endl;
     return 0;
 }

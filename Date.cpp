@@ -162,3 +162,19 @@ int Date::getNumberOfMonthDays(int year, int month){
 
     return numberOfDays;
 }
+
+int Date::getActualDate(){
+    time_t currentTime;
+    struct tm * timeInfo;
+
+    int year, month, day;
+
+    time(&currentTime);
+    timeInfo = localtime(&currentTime);
+
+    year = 2000 + timeInfo->tm_year - 100;
+    month = timeInfo->tm_mon + 1;
+    day = timeInfo->tm_mday;
+
+    return year*10000+month*100+day;
+}
