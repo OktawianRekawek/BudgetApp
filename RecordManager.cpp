@@ -1,7 +1,7 @@
 #include "RecordManager.h"
 
 RecordManager::RecordManager(int loggedUserID) : LOGGED_USER_ID(loggedUserID){
-    cout << "RecordManager konstruktor" << endl;
+    recordsSummary = 0;
 }
 
 RecordManager::~RecordManager(){
@@ -70,22 +70,24 @@ void RecordManager::displayAllRecords(){
 void RecordManager::displayThisMonthRecords(){
 
     int thisYear = 0, thisMonth = 0;
-
+    recordsSummary = 0;
     thisYear = Date::getThisYear();
     thisMonth = Date::getThisMonth();
 
     cout << "Data     Nazwa     Wartosc" << endl;
     cout << "--------------------------" << endl;
     for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth){
             displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
+        }
     }
 }
 
 void RecordManager::displayPreviousMonthRecords(){
 
     int thisYear = 0, thisMonth = 0;
-
+    recordsSummary = 0;
     thisYear = Date::getThisYear();
     thisMonth = Date::getThisMonth();
 
@@ -98,15 +100,17 @@ void RecordManager::displayPreviousMonthRecords(){
     cout << "Data     Nazwa     Wartosc" << endl;
     cout << "--------------------------" << endl;
     for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth){
             displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
+        }
     }
 }
 
 void RecordManager::displaySelectedPeriodRecords(){
 
     int firstDate, secondDate;
-
+    recordsSummary = 0;
     cout << "Podaj pierwsza date!" << endl;
     firstDate = Date::getDate();
     cout << "Podaj druga date!" << endl;
@@ -116,10 +120,18 @@ void RecordManager::displaySelectedPeriodRecords(){
         cout << "Data     Nazwa     Wartosc" << endl;
         cout << "--------------------------" << endl;
         for (unsigned int i = 0; i <= records.size(); i++){
-            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate)
+            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate){
                 displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     } else {
         cout << "Druga data jest przed pierwsza!" << endl;
     }
+}
+
+void RecordManager::displayRecordsSummary(){
+    cout << "=======================" << endl;
+    cout << recordsSummary << endl;
+    cout << "=======================" << endl;
 }
