@@ -1,10 +1,10 @@
 #include "RecordManager.h"
 
-RecordManager::RecordManager(int loggedUserID) : LOGGED_USER_ID(loggedUserID){
-    cout << "RecordManager konstruktor" << endl;
+RecordManager::RecordManager(int loggedUserID) : LOGGED_USER_ID(loggedUserID) {
+    recordsSummary = 0;
 }
 
-RecordManager::~RecordManager(){
+RecordManager::~RecordManager() {
     cout << "RecordManager dekonstruktor" << endl;
 }
 
@@ -36,14 +36,10 @@ Record RecordManager::passNewRecordData() {
     cout << "Czy wpisz dotyczy dnia dzisiejszego?" << endl;
     cout << "Potwierdz naciskajac klawisz 't': " << endl;
     character = SubsidiaryMethods::readChar();
-    if (character == 't'){
+    if (character == 't') {
         date = Date::getActualDate();
     } else {
-        do {
-            cout << "Podaj date w formacie yyyy-mm-dd: ";
-            dateString = SubsidiaryMethods::readLine();
-        } while(!Date::isCorrectDate(dateString));
-        date = Date::convertDateFromStringToInt(dateString);
+        date = Date::getDate();
     }
     record.setDate(date);
 
@@ -58,72 +54,87 @@ Record RecordManager::passNewRecordData() {
     return record;
 }
 
-void RecordManager::displayRecord(Record record){
+void RecordManager::displayRecord(Record record) {
     cout << record.getDate() << "  ";
     cout << record.getAmount() << "  ";
     cout << record.getItem() << endl;
 }
 
-void RecordManager::displayAllRecords(){
+void RecordManager::displayAllRecords() {
+    recordsSummary = 0;
     cout << "Data      Wartosc    Nazwa" << endl;
     cout << "---------------------------" << endl;
-    for (unsigned int i = 0; i < records.size(); i++)
+    for (unsigned int i = 0; i < records.size(); i++) {
         displayRecord(records[i]);
-}
-
-void RecordManager::displayThisMonthRecords(){
-
-    int thisYear = 0, thisMonth = 0;
-
-    thisYear = Date::getThisYear();
-    thisMonth = Date::getThisMonth();
-
-    cout << "Data     Nazwa     Wartosc" << endl;
-    cout << "--------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
-            displayRecord(records[i]);
+        recordsSummary += records[i].getAmount();
     }
 }
 
-void RecordManager::displayPreviousMonthRecords(){
+void RecordManager::displayThisMonthRecords() {
 
     int thisYear = 0, thisMonth = 0;
-
+    recordsSummary = 0;
     thisYear = Date::getThisYear();
     thisMonth = Date::getThisMonth();
 
-    if (thisMonth == 1){
+    cout << "Data      Wartosc    Nazwa" << endl;
+    cout << "--------------------------" << endl;
+    for (unsigned int i = 0; i <= records.size(); i++) {
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
+            displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
+        }
+    }
+}
+
+void RecordManager::displayPreviousMonthRecords() {
+
+    int thisYear = 0, thisMonth = 0;
+    recordsSummary = 0;
+    thisYear = Date::getThisYear();
+    thisMonth = Date::getThisMonth();
+
+    if (thisMonth == 1) {
         thisMonth = 12;
         thisYear -= 1;
     } else
         thisMonth -= 1;
 
-    cout << "Data     Nazwa     Wartosc" << endl;
+    cout << "Data      Wartosc    Nazwa" << endl;
     cout << "--------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
+    for (unsigned int i = 0; i <= records.size(); i++) {
+        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
             displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
+        }
     }
 }
 
-void RecordManager::displaySelectedPeriodRecords(){
+void RecordManager::displaySelectedPeriodRecords() {
 
-    int thisYear = 0, thisMonth = 0;
+    int firstDate, secondDate;
+    recordsSummary = 0;
+    cout << "Podaj pierwsza date!" << endl;
+    firstDate = Date::getDate();
+    cout << "Podaj druga date!" << endl;
+    secondDate = Date::getDate();
 
-    thisYear = Date::getThisYear();
-    thisMonth = Date::getThisMonth();
-
-    if (thisMonth == 1){
-        thisMonth = 12;
-        thisYear -= 1;
-    } else
-        thisMonth -= 1;
-
-    cout << "Data     Nazwa     Wartosc" << endl;
-    cout << "--------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++){
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth)
-            displayRecord(records[i]);
+    if (Date::compareDates(firstDate, secondDate)) {
+        cout << "Data      Wartosc    Nazwa" << endl;
+        cout << "--------------------------" << endl;
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
+        }
+    } else {
+        cout << "Druga data jest przed pierwsza!" << endl;
     }
+}
+
+void RecordManager::displayRecordsSummary() {
+    cout << "=======================" << endl;
+    cout << recordsSummary << endl;
+    cout << "=======================" << endl;
 }

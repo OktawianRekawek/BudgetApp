@@ -1,7 +1,7 @@
 #include "Date.h"
 
-bool Date::isCorrectDate(string date){
-    if (!checkDateFormat(date)){
+bool Date::isCorrectDate(string date) {
+    if (!checkDateFormat(date)) {
         cout << "Data ma nieprawidlowy format!" << endl;
         return false;
     }
@@ -103,10 +103,10 @@ bool Date::isCorrectDay(int year, int month, int day) {
     return true;
 }
 
-int Date::convertDateFromStringToInt(string dateString){
+int Date::convertDateFromStringToInt(string dateString) {
     string dateWithoutSeparators = "";
     int date = 0;
-    for (unsigned int i = 0; i < dateString.length(); i++){
+    for (unsigned int i = 0; i < dateString.length(); i++) {
         if (dateString[i] != '-')
             dateWithoutSeparators += dateString[i];
     }
@@ -114,7 +114,7 @@ int Date::convertDateFromStringToInt(string dateString){
     return date;
 }
 
-int Date::getThisYear(){
+int Date::getThisYear() {
 
     time_t currentTime;
     struct tm * timeInfo;
@@ -125,7 +125,7 @@ int Date::getThisYear(){
     return 2000 + timeInfo->tm_year - 100;
 }
 
-int Date::getThisMonth(){
+int Date::getThisMonth() {
 
     time_t currentTime;
     struct tm * timeInfo;
@@ -136,7 +136,7 @@ int Date::getThisMonth(){
     return timeInfo->tm_mon + 1;
 }
 
-int Date::getNumberOfMonthDays(int year, int month){
+int Date::getNumberOfMonthDays(int year, int month) {
 
     int numberOfDays = 0;
     switch (month) {
@@ -163,7 +163,7 @@ int Date::getNumberOfMonthDays(int year, int month){
     return numberOfDays;
 }
 
-int Date::getActualDate(){
+int Date::getActualDate() {
     time_t currentTime;
     struct tm * timeInfo;
 
@@ -177,4 +177,20 @@ int Date::getActualDate(){
     day = timeInfo->tm_mday;
 
     return year*10000+month*100+day;
+}
+
+int Date::getDate() {
+    string dateString = "";
+    do {
+        cout << "Podaj date w formacie yyyy-mm-dd: ";
+        dateString = SubsidiaryMethods::readLine();
+    } while(!Date::isCorrectDate(dateString));
+    return Date::convertDateFromStringToInt(dateString);
+}
+
+bool Date::compareDates(int firstDate, int secondDate){
+    if (firstDate <= secondDate)
+        return true;
+    else
+        return false;
 }

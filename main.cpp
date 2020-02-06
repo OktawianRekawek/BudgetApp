@@ -83,7 +83,9 @@ int main(){
     recordManager.addRecord();
     recordManager.displayAllRecords();
     recordManager.displayThisMonthRecords();
-    recordManager.displayPreviousMonthRecords();
+//    recordManager.displayPreviousMonthRecords();
+//    recordManager.displaySelectedPeriodRecords();
+    recordManager.displayRecordsSummary();
 
     return 0;
 }

@@ -15,6 +15,7 @@ class RecordManager {
 
     vector<Record> records;
     const int LOGGED_USER_ID;
+    double recordsSummary;
     //RecordsFile recordsFile;
 
     Record passNewRecordData();
@@ -28,7 +29,7 @@ public:
 //    void readLoggedUserRecordsFromFile();
     void displayThisMonthRecords();
     void displayPreviousMonthRecords();
-//    void displaySelectedPeriodRecords();
-//    void displayRecordsSummary();
+    void displaySelectedPeriodRecords();
+    void displayRecordsSummary();
 };
 #endif //RECORDMANAGER_H
