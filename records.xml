@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Records>
+<Record>
+<UserId>1</UserId>
+<Date>20200131</Date>
+<Amount>2500.560000</Amount>
+<Item>TV</Item>
+</Record>
+<Record>
+<UserId>1</UserId>
+<Date>20200121</Date>
+<Amount>1000.000000</Amount>
+<Item>XBOX</Item>
+</Record>
+</Records>

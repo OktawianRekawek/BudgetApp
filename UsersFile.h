@@ -13,13 +13,10 @@ using namespace std;
 class UsersFile : public XmlFile{
 
 
-//    string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik);
-//    Uzytkownik pobierzDaneUzytkownika(string);
 public:
     UsersFile(string fileName) : XmlFile(fileName) {};
     void saveUserInFile(User);
     vector<User> readUsersFromFile();
-//    void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 };
 
 #endif //USERSFILE_H

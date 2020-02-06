@@ -6,6 +6,7 @@
 #include "RecordManager.h"
 #include "Date.h"
 #include "UsersFile.h"
+#include "RecordsFile.h"
 
 using namespace std;
 
@@ -91,9 +92,9 @@ int main_RecordManager(){
     return 0;
 }
 
-int main (){
+int main_usersFile (){
 
-    UsersFile usersFile = UsersFile("users.xml");
+//    UsersFile usersFile = UsersFile("users.xml");
 
 //    User user;
 //    user.setID(2);
@@ -103,7 +104,21 @@ int main (){
 //    user.setSurname("Kurek");
 //
 //    usersFile.saveUserInFile(user);
-    usersFile.readUsersFromFile();
+//    usersFile.readUsersFromFile();
+
+    return 0;
+}
+
+int main(){
+    RecordsFile recordsFile = RecordsFile("records.xml");
+
+    Record record;
+    record.setUserID(1);
+    record.setDate(20200121);
+    record.setItem("XBOX");
+    record.setAmount(1000);
+
+    recordsFile.saveRecordInFile(record);
 
     return 0;
 }
