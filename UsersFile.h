@@ -18,7 +18,7 @@ class UsersFile : public XmlFile{
 public:
     UsersFile(string fileName) : XmlFile(fileName) {};
     void saveUserInFile(User);
-//    vector<Uzytkownik> wczytajUzytkownikowZPliku();
+    vector<User> readUsersFromFile();
 //    void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> &uzytkownicy);
 };
 

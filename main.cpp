@@ -95,14 +95,15 @@ int main (){
 
     UsersFile usersFile = UsersFile("users.xml");
 
-    User user;
-    user.setID(2);
-    user.setLogin("ania");
-    user.setPassword("oki");
-    user.setName("Anna");
-    user.setSurname("Kurek");
-
-    usersFile.saveUserInFile(user);
+//    User user;
+//    user.setID(2);
+//    user.setLogin("ania");
+//    user.setPassword("oki");
+//    user.setName("Anna");
+//    user.setSurname("Kurek");
+//
+//    usersFile.saveUserInFile(user);
+    usersFile.readUsersFromFile();
 
     return 0;
 }

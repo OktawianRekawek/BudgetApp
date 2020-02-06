@@ -23,3 +23,39 @@ void UsersFile::saveUserInFile(User user){
 
     xml.Save(FILE_NAME);
 }
+
+vector<User> UsersFile::readUsersFromFile(){
+    CMarkup xml;
+    vector<User> users;
+    User user;
+
+    bool fileExists = xml.Load( FILE_NAME );
+
+    if (!fileExists)
+        return users;
+
+    xml.FindElem("Users");
+    xml.IntoElem();
+
+    while ( xml.FindElem("User") ) {
+        xml.IntoElem();
+        xml.FindElem( "UserId" );
+        user.setID(atoi(MCD_2PCSZ(xml.GetData())));
+        cout << "UserID: " << user.getID() << endl;
+        xml.FindElem( "Login" );
+        user.setLogin(xml.GetData());
+        cout << "Login: " << user.getLogin()<< endl;
+        xml.FindElem( "Password" );
+        user.setPassword(xml.GetData());
+        cout << "Password: " << user.getPassword()<< endl;
+        xml.FindElem( "Name" );
+        user.setName(xml.GetData());
+        cout << "Name: " << user.getName()<< endl;
+        xml.FindElem( "Surname" );
+        user.setSurname(xml.GetData());
+        cout << "Surname: " << user.getSurname()<< endl;
+        xml.OutOfElem();
+        users.push_back(user);
+    }
+    return users;
+}
