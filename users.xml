@@ -14,4 +14,11 @@
 <Name>Anna</Name>
 <Surname>Kurek</Surname>
 </User>
+<User>
+<UserId>3</UserId>
+<Login>admin</Login>
+<Password>admin</Password>
+<Name>Admin</Name>
+<Surname>Admin</Surname>
+</User>
 </Users>

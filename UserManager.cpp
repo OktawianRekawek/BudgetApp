@@ -23,7 +23,7 @@ void UserManager::displayAllUsers() {
 void UserManager::userRagistration(){
     User user = passNewUserData();
     users.push_back(user);
-    //plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    usersFile.saveUserInFile(user);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
