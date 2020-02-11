@@ -76,9 +76,9 @@ int main_Record() {
     return 0;
 }
 
-int main_RecordManager(){
+int main(){
 
-    RecordManager recordManager = RecordManager(1);
+    RecordManager recordManager = RecordManager("records.xml", 1);
 
     recordManager.addRecord();
     recordManager.addRecord();
@@ -109,7 +109,7 @@ int main_usersFile (){
     return 0;
 }
 
-int main(){
+int main_RecordsFile(){
     RecordsFile recordsFile = RecordsFile("records.xml");
 
 //    Record record;

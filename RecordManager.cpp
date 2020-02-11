@@ -1,6 +1,8 @@
 #include "RecordManager.h"
 
-RecordManager::RecordManager(int loggedUserID) : LOGGED_USER_ID(loggedUserID) {
+RecordManager::RecordManager(string fileName, int loggedUserID)
+    : recordsFile(fileName), LOGGED_USER_ID(loggedUserID){
+    readLoggedUserRecordsFromFile();
     recordsSummary = 0;
 }
 
@@ -137,4 +139,8 @@ void RecordManager::displayRecordsSummary() {
     cout << "=======================" << endl;
     cout << recordsSummary << endl;
     cout << "=======================" << endl;
+}
+
+void RecordManager::readLoggedUserRecordsFromFile() {
+    records = recordsFile.readLoggedUserRecordsFromFile(LOGGED_USER_ID);
 }
