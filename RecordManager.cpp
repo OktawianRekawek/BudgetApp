@@ -1,7 +1,7 @@
 #include "RecordManager.h"
 
 RecordManager::RecordManager(string fileName, int loggedUserID)
-    : recordsFile(fileName), LOGGED_USER_ID(loggedUserID){
+    : LOGGED_USER_ID(loggedUserID), recordsFile(fileName) {
     readLoggedUserRecordsFromFile();
     recordsSummary = 0;
 }
@@ -18,11 +18,8 @@ void RecordManager::addRecord() {
     record = passNewRecordData();
 
     records.push_back(record);
-//    if (plikZAdresatami.dopiszAdresataDoPliku(record)) {
-//        cout << "Nowy adresat zostal dodany" << endl;
-//    } else {
-//        cout << "Blad. Nie udalo sie dodac nowego adresata do pliku" << endl;
-//    }
+    recordsFile.saveRecordInFile(record);
+    cout << "Nowy rekord zostal dodany" << endl;
     system("pause");
 }
 
