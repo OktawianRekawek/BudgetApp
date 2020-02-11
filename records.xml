@@ -12,4 +12,10 @@
 <Amount>1000.000000</Amount>
 <Item>XBOX</Item>
 </Record>
+<Record>
+<UserId>2</UserId>
+<Date>20200221</Date>
+<Amount>3500.000000</Amount>
+<Item>Laptop</Item>
+</Record>
 </Records>

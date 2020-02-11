@@ -16,7 +16,7 @@ class RecordsFile : public XmlFile{
 public:
     RecordsFile(string fileName) : XmlFile(fileName) {};
     void saveRecordInFile(Record);
-//    vector<Record> readLoggedUserRecordFromFile();
+    vector<Record> readLoggedUserRecordsFromFile(int);
 };
 
 #endif //RECORDSFILE_H

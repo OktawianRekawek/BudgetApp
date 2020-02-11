@@ -112,13 +112,15 @@ int main_usersFile (){
 int main(){
     RecordsFile recordsFile = RecordsFile("records.xml");
 
-    Record record;
-    record.setUserID(1);
-    record.setDate(20200121);
-    record.setItem("XBOX");
-    record.setAmount(1000);
-
-    recordsFile.saveRecordInFile(record);
+//    Record record;
+//    record.setUserID(2);
+//    record.setDate(20200221);
+//    record.setItem("Laptop");
+//    record.setAmount(3500);
+//
+//    recordsFile.saveRecordInFile(record);
+    recordsFile.readLoggedUserRecordsFromFile(1);
+    recordsFile.readLoggedUserRecordsFromFile(2);
 
     return 0;
 }
