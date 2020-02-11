@@ -11,7 +11,7 @@
 using namespace std;
 
 int main_budget() {
-    Budget budget;
+    Budget budget = Budget("users.xml");
 
     budget.userRagistration();
     budget.userLogin();
@@ -47,15 +47,15 @@ int main_user() {
     return 0;
 }
 
-int main_userManager(){
+int main(){
 
-    UserManager userManager;
+    UserManager userManager = UserManager("users.xml");
 
-    userManager.userRagistration();
+//    userManager.userRagistration();
     userManager.displayAllUsers();
-    userManager.userLogin();
-    userManager.changeLoggedUserPassword();
-    userManager.userLogout();
+//    userManager.userLogin();
+//    userManager.changeLoggedUserPassword();
+//    userManager.userLogout();
 
     return 0;
 }
@@ -76,7 +76,7 @@ int main_Record() {
     return 0;
 }
 
-int main(){
+int main_recordManager(){
 
     RecordManager recordManager = RecordManager("records.xml", 1);
 

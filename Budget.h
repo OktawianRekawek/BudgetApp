@@ -14,7 +14,7 @@ class Budget {
     //const string INCOMES_FILENAME;
     //const string EXPANSES_FILENAME;
 public:
-    Budget();
+    Budget(string);
     ~Budget();
     void userRagistration();
     void userLogin();

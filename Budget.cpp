@@ -1,7 +1,6 @@
 #include "Budget.h"
 
-Budget::Budget(){
-    cout << "Konstruktor" << endl;
+Budget::Budget(string usersFileName) : userManager(usersFileName){
 }
 
 Budget::~Budget(){

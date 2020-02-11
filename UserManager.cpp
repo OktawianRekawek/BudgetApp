@@ -1,7 +1,9 @@
 #include "UserManager.h"
 
-UserManager::UserManager(){
-    cout << "UserManager konstruktor" << endl;
+UserManager::UserManager(string fileName)
+    : usersFile(fileName){
+    users = usersFile.readUsersFromFile();
+    loggedUserID = 0;
 }
 
 UserManager::~UserManager(){
