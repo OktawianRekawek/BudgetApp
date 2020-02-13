@@ -10,8 +10,8 @@
 
 using namespace std;
 
-int main_budget() {
-    Budget budget = Budget("users.xml");
+int main() {
+    Budget budget = Budget("users.xml", "incomes.xml", "expanses.xml");
 
     budget.userRagistration();
     budget.userLogin();
@@ -47,7 +47,7 @@ int main_user() {
     return 0;
 }
 
-int main(){
+int main_usermanager(){
 
     UserManager userManager = UserManager("users.xml");
 

@@ -4,17 +4,18 @@
 
 #include <iostream>
 #include "UserManager.h"
+#include "RecordManager.h"
 
 using namespace std;
 
 class Budget {
     UserManager userManager;
-    //RecordManager *incomeManager;
-    //RecordManager *expanseManager;
-    //const string INCOMES_FILENAME;
-    //const string EXPANSES_FILENAME;
+    RecordManager *incomeManager;
+    RecordManager *expanseManager;
+    const string INCOMES_FILENAME;
+    const string EXPANSES_FILENAME;
 public:
-    Budget(string);
+    Budget(string, string, string);
     ~Budget();
     void userRagistration();
     void userLogin();

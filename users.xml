@@ -21,4 +21,11 @@
 <Name>Admin</Name>
 <Surname>Admin</Surname>
 </User>
+<User>
+<UserId>4</UserId>
+<Login>user</Login>
+<Password>user</Password>
+<Name>user</Name>
+<Surname>user</Surname>
+</User>
 </Users>

@@ -1,6 +1,9 @@
 #include "Budget.h"
 
-Budget::Budget(string usersFileName) : userManager(usersFileName){
+Budget::Budget(string usersFileName, string incomesFileName, string expansesFileName)
+    : userManager(usersFileName), INCOMES_FILENAME(incomesFileName), EXPANSES_FILENAME(expansesFileName){
+    expanseManager = NULL;
+    incomeManager = NULL;
 }
 
 Budget::~Budget(){
@@ -12,7 +15,7 @@ void Budget::userRagistration(){
 }
 
 void Budget::userLogin(){
-    cout << "Logowanie uzytkownika" << endl;
+    userManager.userLogin();
 }
 
 void Budget::changeLoggedUserPassword(){
