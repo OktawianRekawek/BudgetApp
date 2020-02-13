@@ -29,5 +29,7 @@ public:
     void displayAllUsers();
     void changeLoggedUserPassword();
     void userLogout();
+    bool isUserLogged();
+    int getLoggedUserID();
 };
 #endif //USERMANAGER_H

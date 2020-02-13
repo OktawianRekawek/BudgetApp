@@ -31,5 +31,6 @@ public:
     void displayPreviousMonthRecords();
     void displaySelectedPeriodRecords();
     void displayRecordsSummary();
+    double getSummary();
 };
 #endif //RECORDMANAGER_H

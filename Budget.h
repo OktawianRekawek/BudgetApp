@@ -14,6 +14,7 @@ class Budget {
     RecordManager *expanseManager;
     const string INCOMES_FILENAME;
     const string EXPANSES_FILENAME;
+    double balance;
 public:
     Budget(string, string, string);
     ~Budget();

@@ -137,3 +137,7 @@ void RecordManager::displayRecordsSummary() {
     cout << recordsSummary << endl;
     cout << "=======================" << endl;
 }
+
+double RecordManager::getSummary(){
+    return recordsSummary;
+}

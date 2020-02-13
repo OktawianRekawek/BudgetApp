@@ -13,10 +13,10 @@ using namespace std;
 int main() {
     Budget budget = Budget("users.xml", "incomes.xml", "expanses.xml");
 
-    budget.userRagistration();
+//    budget.userRagistration();
     budget.userLogin();
-    budget.isUserLogged();
-    budget.changeLoggedUserPassword();
+//    budget.isUserLogged();
+//    budget.changeLoggedUserPassword();
     budget.addExpanse();
     budget.addIncome();
     budget.thisMonthBalance();

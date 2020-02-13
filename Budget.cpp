@@ -4,6 +4,7 @@ Budget::Budget(string usersFileName, string incomesFileName, string expansesFile
     : userManager(usersFileName), INCOMES_FILENAME(incomesFileName), EXPANSES_FILENAME(expansesFileName){
     expanseManager = NULL;
     incomeManager = NULL;
+    balance = 0;
 }
 
 Budget::~Budget(){
@@ -16,6 +17,9 @@ void Budget::userRagistration(){
 
 void Budget::userLogin(){
     userManager.userLogin();
+    if (userManager.isUserLogged())
+        incomeManager = new RecordManager(INCOMES_FILENAME, userManager.getLoggedUserID());
+        expanseManager = new RecordManager(EXPANSES_FILENAME, userManager.getLoggedUserID());
 }
 
 void Budget::changeLoggedUserPassword(){
@@ -23,24 +27,30 @@ void Budget::changeLoggedUserPassword(){
 }
 
 void Budget::userLogout(){
-    cout << "Wylogowanie" << endl;
+    userManager.userLogout();
 }
 
 void Budget::addIncome(){
-    cout << "Dodawanie przychodu" << endl;
+    incomeManager->addRecord();
 }
 
 void Budget::addExpanse(){
-    cout << "Dodawanie wydatku" << endl;
+    expanseManager->addRecord();
 }
 
 bool Budget::isUserLogged(){
-    cout << "Czy uzytkownik zalogowany?" << endl;
     return true;
 }
 
 void Budget::thisMonthBalance(){
-    cout << "Bilans biezacego miesiaca" << endl;
+    incomeManager->displayThisMonthRecords();
+    expanseManager->displayThisMonthRecords();
+
+    balance = incomeManager->getSummary() - expanseManager->getSummary();
+
+    cout << "Przychody: " << incomeManager->getSummary() << endl;
+    cout << "Wydatki:   " << expanseManager->getSummary() << endl;
+    cout << "Bilans:    " << balance << endl;
 }
 
 void Budget::previousMonthBalance(){

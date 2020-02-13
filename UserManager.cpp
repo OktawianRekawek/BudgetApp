@@ -127,3 +127,14 @@ void UserManager::userLogout() {
     cout << endl << "Wylogowales sie." << endl << endl;
     system("pause");
 }
+
+bool UserManager::isUserLogged(){
+    if (loggedUserID != 0)
+        return true;
+    else
+        return false;
+}
+
+int UserManager::getLoggedUserID(){
+    return loggedUserID;
+}
