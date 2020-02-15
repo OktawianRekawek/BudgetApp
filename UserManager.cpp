@@ -119,7 +119,7 @@ void UserManager::changeLoggedUserPassword() {
             system("pause");
         }
     }
-    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    usersFile.saveNewPasswordInFile(newPassword, loggedUserID);
 }
 
 void UserManager::userLogout() {

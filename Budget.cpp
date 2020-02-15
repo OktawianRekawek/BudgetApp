@@ -23,7 +23,7 @@ void Budget::userLogin() {
 }
 
 void Budget::changeLoggedUserPassword() {
-    cout << "Zmiana hasla uzytkownika" << endl;
+    userManager.changeLoggedUserPassword();
 }
 
 void Budget::userLogout() {

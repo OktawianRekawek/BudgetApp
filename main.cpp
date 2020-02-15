@@ -16,12 +16,12 @@ int main() {
 //    budget.userRagistration();
     budget.userLogin();
 //    budget.isUserLogged();
-//    budget.changeLoggedUserPassword();
-    budget.addExpanse();
-    budget.addIncome();
+    budget.changeLoggedUserPassword();
+//    budget.addExpanse();
+//    budget.addIncome();
 //    budget.thisMonthBalance();
 //    budget.previousMonthBalance();
-    budget.selectedPeriodBalance();
+//    budget.selectedPeriodBalance();
     budget.userLogout();
 
 

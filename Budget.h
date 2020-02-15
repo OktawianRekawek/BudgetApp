@@ -5,6 +5,7 @@
 #include <iostream>
 #include "UserManager.h"
 #include "RecordManager.h"
+#include "Date.h"
 
 using namespace std;
 
