@@ -47,6 +47,7 @@ bool Budget::isUserLogged() {
 }
 
 void Budget::thisMonthBalance() {
+    system("cls");
     incomeManager->displayThisMonthRecords();
     expanseManager->displayThisMonthRecords();
 
@@ -55,9 +56,11 @@ void Budget::thisMonthBalance() {
     cout << "Przychody: " << incomeManager->getSummary() << endl;
     cout << "Wydatki:   " << expanseManager->getSummary() << endl;
     cout << "Bilans:    " << balance << endl;
+    system("pause");
 }
 
 void Budget::previousMonthBalance() {
+    system("cls");
     incomeManager->displayPreviousMonthRecords();
     expanseManager->displayPreviousMonthRecords();
 
@@ -66,11 +69,12 @@ void Budget::previousMonthBalance() {
     cout << "Przychody: " << incomeManager->getSummary() << endl;
     cout << "Wydatki:   " << expanseManager->getSummary() << endl;
     cout << "Bilans:    " << balance << endl;
+    system("pause");
 }
 
 void Budget::selectedPeriodBalance() {
     int firstDate, secondDate;
-
+    system("cls");
     cout << "Podaj pierwsza date!" << endl;
     firstDate = Date::getDate();
     cout << "Podaj druga date!" << endl;
@@ -88,4 +92,5 @@ void Budget::selectedPeriodBalance() {
     } else {
         cout << "Druga data jest przed pierwsza!" << endl;
     }
+    system("pause");
 }
