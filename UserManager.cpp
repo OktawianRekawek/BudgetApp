@@ -30,7 +30,6 @@ void UserManager::userRagistration(){
 
 void UserManager::userLogin(){
     string login = "", password = "";
-    system("cls");
     cout << "Podaj login: ";
     login = SubsidiaryMethods::readLine();
 

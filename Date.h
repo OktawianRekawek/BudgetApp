@@ -29,6 +29,7 @@ public:
     static int getActualDate();
     static int getDate();
     static bool compareDates(int, int);
+    static void displayDate(int);
 };
 
 #endif // DATE_H
