@@ -19,9 +19,9 @@ int main() {
 //    budget.changeLoggedUserPassword();
     budget.addExpanse();
     budget.addIncome();
-    budget.thisMonthBalance();
+//    budget.thisMonthBalance();
     budget.previousMonthBalance();
-    budget.selectedPeriodBalance();
+//    budget.selectedPeriodBalance();
     budget.userLogout();
 
 

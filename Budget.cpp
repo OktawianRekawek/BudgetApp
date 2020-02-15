@@ -54,7 +54,14 @@ void Budget::thisMonthBalance(){
 }
 
 void Budget::previousMonthBalance(){
-    cout << "Bilans poprzedniego miesiaca" << endl;
+    incomeManager->displayPreviousMonthRecords();
+    expanseManager->displayPreviousMonthRecords();
+
+    balance = incomeManager->getSummary() - expanseManager->getSummary();
+
+    cout << "Przychody: " << incomeManager->getSummary() << endl;
+    cout << "Wydatki:   " << expanseManager->getSummary() << endl;
+    cout << "Bilans:    " << balance << endl;
 }
 
 void Budget::selectedPeriodBalance(){
