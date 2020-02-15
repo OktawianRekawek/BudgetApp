@@ -7,7 +7,6 @@ UserManager::UserManager(string fileName)
 }
 
 UserManager::~UserManager(){
-    cout << "UserManager dekonstruktor" << endl;
 }
 
 void UserManager::displayAllUsers() {

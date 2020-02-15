@@ -7,7 +7,6 @@ RecordManager::RecordManager(string fileName, int loggedUserID)
 }
 
 RecordManager::~RecordManager() {
-    cout << "RecordManager dekonstruktor" << endl;
 }
 
 void RecordManager::addRecord() {
