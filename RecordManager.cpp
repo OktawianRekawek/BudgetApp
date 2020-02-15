@@ -109,26 +109,17 @@ void RecordManager::displayPreviousMonthRecords() {
     }
 }
 
-void RecordManager::displaySelectedPeriodRecords() {
+void RecordManager::displaySelectedPeriodRecords(int firstDate, int secondDate) {
 
-    int firstDate, secondDate;
     recordsSummary = 0;
-    cout << "Podaj pierwsza date!" << endl;
-    firstDate = Date::getDate();
-    cout << "Podaj druga date!" << endl;
-    secondDate = Date::getDate();
 
-    if (Date::compareDates(firstDate, secondDate)) {
-        cout << "Data      Wartosc    Nazwa" << endl;
-        cout << "--------------------------" << endl;
-        for (unsigned int i = 0; i <= records.size(); i++) {
-            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
-                displayRecord(records[i]);
-                recordsSummary += records[i].getAmount();
-            }
+    cout << "Data      Wartosc    Nazwa" << endl;
+    cout << "--------------------------" << endl;
+    for (unsigned int i = 0; i <= records.size(); i++) {
+        if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
+            displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
         }
-    } else {
-        cout << "Druga data jest przed pierwsza!" << endl;
     }
 }
 
@@ -138,6 +129,6 @@ void RecordManager::displayRecordsSummary() {
     cout << "=======================" << endl;
 }
 
-double RecordManager::getSummary(){
+double RecordManager::getSummary() {
     return recordsSummary;
 }

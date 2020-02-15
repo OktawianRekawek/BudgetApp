@@ -29,7 +29,7 @@ public:
     void displayAllRecords();
     void displayThisMonthRecords();
     void displayPreviousMonthRecords();
-    void displaySelectedPeriodRecords();
+    void displaySelectedPeriodRecords(int, int);
     void displayRecordsSummary();
     double getSummary();
 };

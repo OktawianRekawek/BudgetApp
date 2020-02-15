@@ -20,8 +20,8 @@ int main() {
     budget.addExpanse();
     budget.addIncome();
 //    budget.thisMonthBalance();
-    budget.previousMonthBalance();
-//    budget.selectedPeriodBalance();
+//    budget.previousMonthBalance();
+    budget.selectedPeriodBalance();
     budget.userLogout();
 
 
@@ -84,7 +84,7 @@ int main_recordManager(){
     recordManager.addRecord();
     recordManager.addRecord();
     recordManager.displayAllRecords();
-    recordManager.displayThisMonthRecords();
+//    recordManager.displayThisMonthRecords();
 //    recordManager.displayPreviousMonthRecords();
 //    recordManager.displaySelectedPeriodRecords();
     recordManager.displayRecordsSummary();
