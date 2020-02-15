@@ -8,7 +8,11 @@ Budget::Budget(string usersFileName, string incomesFileName, string expansesFile
 }
 
 Budget::~Budget() {
-    cout << "Destruktor" << endl;
+    delete expanseManager;
+    delete incomeManager;
+
+    expanseManager = NULL;
+    incomeManager = NULL;
 }
 
 void Budget::userRagistration() {
