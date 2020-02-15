@@ -7,6 +7,7 @@
 
 #include "User.h"
 #include "SubsidiaryMethods.h"
+#include "UsersFile.h"
 
 using namespace std;
 
@@ -14,20 +15,21 @@ class UserManager {
 
     int loggedUserID;
     vector<User> users;
-    //UsersFie usersFile;
+    UsersFile usersFile;
 
     User passNewUserData();
     int getNewUserID();
     bool isLoginExist(string);
 
 public:
-    UserManager();
+    UserManager(string);
     ~UserManager();
     void userRagistration();
     void userLogin();
     void displayAllUsers();
     void changeLoggedUserPassword();
     void userLogout();
-   // void readUsersFromFile();
+    bool isUserLogged();
+    int getLoggedUserID();
 };
 #endif //USERMANAGER_H

@@ -1,12 +1,11 @@
 #include "RecordsFile.h"
 
-void RecordsFile::saveRecordInFile(Record record){
+void RecordsFile::saveRecordInFile(Record record) {
     CMarkup xml;
 
     bool fileExists = xml.Load( FILE_NAME );
 
-    if (!fileExists)
-    {
+    if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Records");
     }
@@ -23,7 +22,7 @@ void RecordsFile::saveRecordInFile(Record record){
     xml.Save(FILE_NAME);
 }
 
-vector<Record> RecordsFile::readLoggedUserRecordsFromFile(int loggedUserId){
+vector<Record> RecordsFile::readLoggedUserRecordsFromFile(int loggedUserId) {
     CMarkup xml;
     vector<Record> records;
     Record record;

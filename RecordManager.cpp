@@ -1,6 +1,8 @@
 #include "RecordManager.h"
 
-RecordManager::RecordManager(int loggedUserID) : LOGGED_USER_ID(loggedUserID) {
+RecordManager::RecordManager(string fileName, int loggedUserID)
+    : LOGGED_USER_ID(loggedUserID), recordsFile(fileName) {
+    records = recordsFile.readLoggedUserRecordsFromFile(LOGGED_USER_ID);
     recordsSummary = 0;
 }
 
@@ -16,11 +18,8 @@ void RecordManager::addRecord() {
     record = passNewRecordData();
 
     records.push_back(record);
-//    if (plikZAdresatami.dopiszAdresataDoPliku(record)) {
-//        cout << "Nowy adresat zostal dodany" << endl;
-//    } else {
-//        cout << "Blad. Nie udalo sie dodac nowego adresata do pliku" << endl;
-//    }
+    recordsFile.saveRecordInFile(record);
+    cout << "Nowy rekord zostal dodany" << endl;
     system("pause");
 }
 
@@ -110,26 +109,17 @@ void RecordManager::displayPreviousMonthRecords() {
     }
 }
 
-void RecordManager::displaySelectedPeriodRecords() {
+void RecordManager::displaySelectedPeriodRecords(int firstDate, int secondDate) {
 
-    int firstDate, secondDate;
     recordsSummary = 0;
-    cout << "Podaj pierwsza date!" << endl;
-    firstDate = Date::getDate();
-    cout << "Podaj druga date!" << endl;
-    secondDate = Date::getDate();
 
-    if (Date::compareDates(firstDate, secondDate)) {
-        cout << "Data      Wartosc    Nazwa" << endl;
-        cout << "--------------------------" << endl;
-        for (unsigned int i = 0; i <= records.size(); i++) {
-            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
-                displayRecord(records[i]);
-                recordsSummary += records[i].getAmount();
-            }
+    cout << "Data      Wartosc    Nazwa" << endl;
+    cout << "--------------------------" << endl;
+    for (unsigned int i = 0; i <= records.size(); i++) {
+        if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
+            displayRecord(records[i]);
+            recordsSummary += records[i].getAmount();
         }
-    } else {
-        cout << "Druga data jest przed pierwsza!" << endl;
     }
 }
 
@@ -137,4 +127,8 @@ void RecordManager::displayRecordsSummary() {
     cout << "=======================" << endl;
     cout << recordsSummary << endl;
     cout << "=======================" << endl;
+}
+
+double RecordManager::getSummary() {
+    return recordsSummary;
 }

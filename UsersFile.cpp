@@ -59,3 +59,28 @@ vector<User> UsersFile::readUsersFromFile(){
     }
     return users;
 }
+
+void UsersFile::saveNewPasswordInFile(string password, int loggedUserID) {
+    CMarkup xml;
+
+    bool fileExists = xml.Load( FILE_NAME );
+
+    if (!fileExists) {
+        cout << "Blad podczas proby otwarcia pliku!" << endl;
+        return;
+    }
+
+    xml.FindElem("Users");
+    xml.IntoElem();
+
+    while ( xml.FindElem("User") ) {
+        xml.IntoElem();
+        xml.FindElem( "UserId" );
+        if (loggedUserID == atoi(MCD_2PCSZ(xml.GetData()))) {
+            xml.FindElem( "Password" );
+            xml.SetData(password);
+        }
+        xml.OutOfElem();
+    }
+    xml.Save(FILE_NAME);
+}

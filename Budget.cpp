@@ -1,50 +1,87 @@
 #include "Budget.h"
 
-Budget::Budget(){
-    cout << "Konstruktor" << endl;
+Budget::Budget(string usersFileName, string incomesFileName, string expansesFileName)
+    : userManager(usersFileName), INCOMES_FILENAME(incomesFileName), EXPANSES_FILENAME(expansesFileName) {
+    expanseManager = NULL;
+    incomeManager = NULL;
+    balance = 0;
 }
 
-Budget::~Budget(){
+Budget::~Budget() {
     cout << "Destruktor" << endl;
 }
 
-void Budget::userRagistration(){
+void Budget::userRagistration() {
     userManager.userRagistration();
 }
 
-void Budget::userLogin(){
-    cout << "Logowanie uzytkownika" << endl;
+void Budget::userLogin() {
+    userManager.userLogin();
+    if (userManager.isUserLogged())
+        incomeManager = new RecordManager(INCOMES_FILENAME, userManager.getLoggedUserID());
+    expanseManager = new RecordManager(EXPANSES_FILENAME, userManager.getLoggedUserID());
 }
 
-void Budget::changeLoggedUserPassword(){
-    cout << "Zmiana hasla uzytkownika" << endl;
+void Budget::changeLoggedUserPassword() {
+    userManager.changeLoggedUserPassword();
 }
 
-void Budget::userLogout(){
-    cout << "Wylogowanie" << endl;
+void Budget::userLogout() {
+    userManager.userLogout();
 }
 
-void Budget::addIncome(){
-    cout << "Dodawanie przychodu" << endl;
+void Budget::addIncome() {
+    incomeManager->addRecord();
 }
 
-void Budget::addExpanse(){
-    cout << "Dodawanie wydatku" << endl;
+void Budget::addExpanse() {
+    expanseManager->addRecord();
 }
 
-bool Budget::isUserLogged(){
-    cout << "Czy uzytkownik zalogowany?" << endl;
-    return true;
+bool Budget::isUserLogged() {
+    return userManager.isUserLogged();
 }
 
-void Budget::thisMonthBalance(){
-    cout << "Bilans biezacego miesiaca" << endl;
+void Budget::thisMonthBalance() {
+    incomeManager->displayThisMonthRecords();
+    expanseManager->displayThisMonthRecords();
+
+    balance = incomeManager->getSummary() - expanseManager->getSummary();
+
+    cout << "Przychody: " << incomeManager->getSummary() << endl;
+    cout << "Wydatki:   " << expanseManager->getSummary() << endl;
+    cout << "Bilans:    " << balance << endl;
 }
 
-void Budget::previousMonthBalance(){
-    cout << "Bilans poprzedniego miesiaca" << endl;
+void Budget::previousMonthBalance() {
+    incomeManager->displayPreviousMonthRecords();
+    expanseManager->displayPreviousMonthRecords();
+
+    balance = incomeManager->getSummary() - expanseManager->getSummary();
+
+    cout << "Przychody: " << incomeManager->getSummary() << endl;
+    cout << "Wydatki:   " << expanseManager->getSummary() << endl;
+    cout << "Bilans:    " << balance << endl;
 }
 
-void Budget::selectedPeriodBalance(){
-    cout << "Bilans wybranego okresu" << endl;
+void Budget::selectedPeriodBalance() {
+    int firstDate, secondDate;
+
+    cout << "Podaj pierwsza date!" << endl;
+    firstDate = Date::getDate();
+    cout << "Podaj druga date!" << endl;
+    secondDate = Date::getDate();
+
+    if (Date::compareDates(firstDate, secondDate)) {
+        incomeManager->displaySelectedPeriodRecords(firstDate, secondDate);
+        expanseManager->displaySelectedPeriodRecords(firstDate, secondDate);
+
+        balance = incomeManager->getSummary() - expanseManager->getSummary();
+
+        cout << "Przychody: " << incomeManager->getSummary() << endl;
+        cout << "Wydatki:   " << expanseManager->getSummary() << endl;
+        cout << "Bilans:    " << balance << endl;
+    } else {
+        cout << "Druga data jest przed pierwsza!" << endl;
+    }
 }

@@ -17,6 +17,7 @@ public:
     UsersFile(string fileName) : XmlFile(fileName) {};
     void saveUserInFile(User);
     vector<User> readUsersFromFile();
+    void saveNewPasswordInFile(string, int);
 };
 
 #endif //USERSFILE_H

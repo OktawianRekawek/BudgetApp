@@ -1,7 +1,9 @@
 #include "UserManager.h"
 
-UserManager::UserManager(){
-    cout << "UserManager konstruktor" << endl;
+UserManager::UserManager(string fileName)
+    : usersFile(fileName){
+    users = usersFile.readUsersFromFile();
+    loggedUserID = 0;
 }
 
 UserManager::~UserManager(){
@@ -21,7 +23,7 @@ void UserManager::displayAllUsers() {
 void UserManager::userRagistration(){
     User user = passNewUserData();
     users.push_back(user);
-    //plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    usersFile.saveUserInFile(user);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -117,11 +119,22 @@ void UserManager::changeLoggedUserPassword() {
             system("pause");
         }
     }
-    //plikZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+    usersFile.saveNewPasswordInFile(newPassword, loggedUserID);
 }
 
 void UserManager::userLogout() {
     loggedUserID = 0;
     cout << endl << "Wylogowales sie." << endl << endl;
     system("pause");
+}
+
+bool UserManager::isUserLogged(){
+    if (loggedUserID != 0)
+        return true;
+    else
+        return false;
+}
+
+int UserManager::getLoggedUserID(){
+    return loggedUserID;
 }

@@ -4,17 +4,20 @@
 
 #include <iostream>
 #include "UserManager.h"
+#include "RecordManager.h"
+#include "Date.h"
 
 using namespace std;
 
 class Budget {
     UserManager userManager;
-    //RecordManager *incomeManager;
-    //RecordManager *expanseManager;
-    //const string INCOMES_FILENAME;
-    //const string EXPANSES_FILENAME;
+    RecordManager *incomeManager;
+    RecordManager *expanseManager;
+    const string INCOMES_FILENAME;
+    const string EXPANSES_FILENAME;
+    double balance;
 public:
-    Budget();
+    Budget(string, string, string);
     ~Budget();
     void userRagistration();
     void userLogin();
