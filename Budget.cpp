@@ -39,7 +39,7 @@ void Budget::addExpanse() {
 }
 
 bool Budget::isUserLogged() {
-    return true;
+    return userManager.isUserLogged();
 }
 
 void Budget::thisMonthBalance() {
