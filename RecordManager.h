@@ -3,6 +3,7 @@
 
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 
 #include "Record.h"
@@ -20,17 +21,17 @@ class RecordManager {
     RecordsFile recordsFile;
 
     Record passNewRecordData();
+    void displayRecord(Record);
+    void displayRecordsSummary();
 
 public:
     RecordManager(string, int);
     ~RecordManager();
     void addRecord();
-    void displayRecord(Record);
     void displayAllRecords();
     void displayThisMonthRecords();
     void displayPreviousMonthRecords();
     void displaySelectedPeriodRecords(int, int);
-    void displayRecordsSummary();
     double getSummary();
 };
 #endif //RECORDMANAGER_H

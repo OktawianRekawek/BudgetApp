@@ -7,7 +7,7 @@ string SubsidiaryMethods::readLine() {
     return input;
 }
 
-double SubsidiaryMethods::readDoubleNumber(){
+double SubsidiaryMethods::readDoubleNumber() {
     string input = "";
     double number = 0;
 
