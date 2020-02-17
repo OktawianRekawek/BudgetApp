@@ -85,10 +85,12 @@ void RecordManager::displayThisMonthRecords() {
 
     cout << " ID    Data       Wartosc      Nazwa" << endl;
     cout << "------------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    if (!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();
@@ -109,10 +111,12 @@ void RecordManager::displayPreviousMonthRecords() {
 
     cout << " ID    Data       Wartosc      Nazwa" << endl;
     cout << "------------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    if (!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();
@@ -124,10 +128,12 @@ void RecordManager::displaySelectedPeriodRecords(int firstDate, int secondDate) 
 
     cout << " ID    Data       Wartosc      Nazwa" << endl;
     cout << "------------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    if(!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();
