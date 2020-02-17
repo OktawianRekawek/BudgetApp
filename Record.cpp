@@ -1,6 +1,11 @@
 #include "Record.h"
 
 
+void Record::setRecordID(int newRecordID) {
+    if (newRecordID >= 0)
+        recordID = newRecordID;
+}
+
 void Record::setUserID(int newUserID) {
     if (newUserID >= 0)
         userID = newUserID;
@@ -18,9 +23,14 @@ void Record::setAmount(double newAmount) {
     amount = newAmount;
 }
 
+int Record::getRecordID() {
+    return recordID;
+}
+
 int Record::getUserID() {
     return userID;
 }
+
 int Record::getDate() {
     return date;
 }
