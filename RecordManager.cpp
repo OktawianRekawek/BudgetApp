@@ -3,6 +3,7 @@
 RecordManager::RecordManager(string fileName, int loggedUserID)
     : LOGGED_USER_ID(loggedUserID), recordsFile(fileName) {
     records = recordsFile.readLoggedUserRecordsFromFile(LOGGED_USER_ID);
+    sortByDate();
     recordsSummary = 0;
 }
 
@@ -15,6 +16,7 @@ void RecordManager::addRecord() {
     record = passNewRecordData();
 
     records.push_back(record);
+    sortByDate();
     recordsFile.saveRecordInFile(record);
 }
 
@@ -135,4 +137,8 @@ void RecordManager::displayRecordsSummary() {
 
 double RecordManager::getSummary() {
     return recordsSummary;
+}
+
+void RecordManager::sortByDate(){
+    sort(records.begin(), records.end(), less<Record>());
 }

@@ -21,5 +21,7 @@ public:
     int getDate();
     string getItem();
     double getAmount();
+
+    friend bool operator< (const Record& a, const Record& b);
 };
 #endif // RECORD_H

@@ -32,3 +32,7 @@ string Record::getItem() {
 double Record::getAmount() {
     return amount;
 }
+
+bool operator< (const Record& a, const Record& b) {
+    return a.date < b.date;
+}
