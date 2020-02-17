@@ -27,6 +27,10 @@ Record RecordManager::passNewRecordData() {
     string item = "", dateString = "";
     double amount = 0;
 
+    if (records.empty())
+        record.setRecordID(1);
+    else
+        record.setRecordID(records[records.size()-1].getRecordID() + 1);
     record.setUserID(LOGGED_USER_ID);
 
     cout << "Czy wpisz dotyczy dnia dzisiejszego?" << endl;
@@ -52,6 +56,8 @@ Record RecordManager::passNewRecordData() {
 
 void RecordManager::displayRecord(Record record) {
     int date = record.getDate();
+    cout.width(5);
+    cout << record.getRecordID() << " | ";
     Date::displayDate(date);
     cout << " | ";
     cout.width(10);
@@ -62,8 +68,8 @@ void RecordManager::displayRecord(Record record) {
 
 void RecordManager::displayAllRecords() {
     recordsSummary = 0;
-    cout << " Data       Wartosc      Nazwa" << endl;
-    cout << "------------------------------------" << endl;
+    cout << " ID    Data       Wartosc      Nazwa" << endl;
+    cout << "------------------------------------------" << endl;
     for (unsigned int i = 0; i < records.size(); i++) {
         displayRecord(records[i]);
         recordsSummary += records[i].getAmount();
@@ -77,12 +83,14 @@ void RecordManager::displayThisMonthRecords() {
     thisYear = Date::getThisYear();
     thisMonth = Date::getThisMonth();
 
-    cout << " Data       Wartosc      Nazwa" << endl;
-    cout << "------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    cout << " ID    Data       Wartosc      Nazwa" << endl;
+    cout << "------------------------------------------" << endl;
+    if (!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();
@@ -101,12 +109,14 @@ void RecordManager::displayPreviousMonthRecords() {
     } else
         thisMonth -= 1;
 
-    cout << " Data       Wartosc      Nazwa" << endl;
-    cout << "------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    cout << " ID    Data       Wartosc      Nazwa" << endl;
+    cout << "------------------------------------------" << endl;
+    if (!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate()/100 == (thisYear*100)+thisMonth) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();
@@ -116,12 +126,14 @@ void RecordManager::displaySelectedPeriodRecords(int firstDate, int secondDate) 
 
     recordsSummary = 0;
 
-    cout << " Data       Wartosc      Nazwa" << endl;
-    cout << "------------------------------------" << endl;
-    for (unsigned int i = 0; i <= records.size(); i++) {
-        if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
-            displayRecord(records[i]);
-            recordsSummary += records[i].getAmount();
+    cout << " ID    Data       Wartosc      Nazwa" << endl;
+    cout << "------------------------------------------" << endl;
+    if(!records.empty()){
+        for (unsigned int i = 0; i <= records.size(); i++) {
+            if (records[i].getDate() >= firstDate && records[i].getDate() <= secondDate) {
+                displayRecord(records[i]);
+                recordsSummary += records[i].getAmount();
+            }
         }
     }
     displayRecordsSummary();

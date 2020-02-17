@@ -60,3 +60,10 @@ char SubsidiaryMethods::readChar() {
     }
     return character;
 }
+
+string SubsidiaryMethods::convertDoubleToString(double data){
+    string convertedData = to_string(data);
+    int dotPosition = convertedData.find('.');
+    convertedData.erase(dotPosition+3);
+    return convertedData;
+}

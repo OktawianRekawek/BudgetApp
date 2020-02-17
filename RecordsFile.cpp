@@ -15,8 +15,9 @@ void RecordsFile::saveRecordInFile(Record record) {
     xml.AddElem("Record");
     xml.IntoElem();
     xml.AddElem("UserId", record.getUserID());
-    xml.AddElem("Date", record.getDate());
-    xml.AddElem("Amount", to_string(record.getAmount()));
+    xml.AddElem("RecordID", record.getRecordID());
+    xml.AddElem("Date", Date::convertDateFromIntToString(record.getDate()));
+    xml.AddElem("Amount", SubsidiaryMethods::convertDoubleToString(record.getAmount()));
     xml.AddElem("Item", record.getItem());
 
     xml.Save(FILE_NAME);
@@ -40,8 +41,10 @@ vector<Record> RecordsFile::readLoggedUserRecordsFromFile(int loggedUserId) {
         xml.FindElem( "UserId" );
         record.setUserID(atoi(MCD_2PCSZ(xml.GetData())));
         if (record.getUserID() == loggedUserId) {
+            xml.FindElem( "RecordID" );
+            record.setRecordID(atoi(MCD_2PCSZ(xml.GetData())));
             xml.FindElem( "Date" );
-            record.setDate(atoi(MCD_2PCSZ(xml.GetData())));
+            record.setDate(Date::convertDateFromStringToInt(MCD_2PCSZ(xml.GetData())));
             xml.FindElem( "Amount" );
             record.setAmount(atof(MCD_2PCSZ(xml.GetData())));
             xml.FindElem( "Item" );
