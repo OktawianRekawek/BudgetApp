@@ -16,6 +16,7 @@ public:
     static string readLine();
     static double readDoubleNumber();
     static char readChar();
+    static string convertDoubleToString(double);
 };
 
 #endif // SUBSIDIARYMETHODS_H

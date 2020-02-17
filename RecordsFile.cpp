@@ -17,7 +17,7 @@ void RecordsFile::saveRecordInFile(Record record) {
     xml.AddElem("UserId", record.getUserID());
     xml.AddElem("RecordID", record.getRecordID());
     xml.AddElem("Date", Date::convertDateFromIntToString(record.getDate()));
-    xml.AddElem("Amount", to_string(record.getAmount()));
+    xml.AddElem("Amount", SubsidiaryMethods::convertDoubleToString(record.getAmount()));
     xml.AddElem("Item", record.getItem());
 
     xml.Save(FILE_NAME);
