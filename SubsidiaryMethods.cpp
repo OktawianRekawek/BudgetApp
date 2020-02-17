@@ -10,13 +10,36 @@ string SubsidiaryMethods::readLine() {
 double SubsidiaryMethods::readDoubleNumber() {
     string input = "";
     double number = 0;
+    bool goodFormat;
+    int numberOfNoDigitChars;
 
     while (true) {
+        goodFormat = true;
+        numberOfNoDigitChars = 0;
         getline(cin, input);
 
-        stringstream myStream(input);
-        if (myStream >> number)
-            break;
+        for (unsigned int i = 0; i < input.length(); i++) {
+            if (!isdigit(input[i])) {
+                if (input[i] == '.')
+                    numberOfNoDigitChars++;
+                else if (input[i] == ',') {
+                    input[i] = '.';
+                    numberOfNoDigitChars++;
+                } else {
+                    goodFormat = false;
+                    break;
+                }
+            }
+        }
+
+        if (numberOfNoDigitChars > 1)
+            goodFormat = false;
+
+        if (goodFormat) {
+            stringstream myStream(input);
+            if (myStream >> number)
+                break;
+        }
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
     }
     return number;
