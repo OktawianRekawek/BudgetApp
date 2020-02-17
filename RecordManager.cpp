@@ -30,7 +30,7 @@ Record RecordManager::passNewRecordData() {
     if (records.empty())
         record.setRecordID(1);
     else
-        record.setRecordID(records[records.size()].getRecordID() + 1);
+        record.setRecordID(records[records.size()-1].getRecordID() + 1);
     record.setUserID(LOGGED_USER_ID);
 
     cout << "Czy wpisz dotyczy dnia dzisiejszego?" << endl;
