@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include <vector>
+#include <algorithm>
 
 #include "Record.h"
 #include "SubsidiaryMethods.h"
@@ -23,6 +24,8 @@ class RecordManager {
     Record passNewRecordData();
     void displayRecord(Record);
     void displayRecordsSummary();
+    void sortByDate();
+    bool compareByDate(const Record&, const Record&);
 
 public:
     RecordManager(string, int);
