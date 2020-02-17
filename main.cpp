@@ -1,12 +1,5 @@
 #include <iostream>
 #include "Budget.h"
-#include "User.h"
-#include "UserManager.h"
-#include "Record.h"
-#include "RecordManager.h"
-#include "Date.h"
-#include "UsersFile.h"
-#include "RecordsFile.h"
 
 using namespace std;
 

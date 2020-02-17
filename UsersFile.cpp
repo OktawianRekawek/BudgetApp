@@ -1,12 +1,11 @@
 #include "UsersFile.h"
 
-void UsersFile::saveUserInFile(User user){
+void UsersFile::saveUserInFile(User user) {
     CMarkup xml;
 
     bool fileExists = xml.Load( FILE_NAME );
 
-    if (!fileExists)
-    {
+    if (!fileExists) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Users");
     }
@@ -24,7 +23,7 @@ void UsersFile::saveUserInFile(User user){
     xml.Save(FILE_NAME);
 }
 
-vector<User> UsersFile::readUsersFromFile(){
+vector<User> UsersFile::readUsersFromFile() {
     CMarkup xml;
     vector<User> users;
     User user;

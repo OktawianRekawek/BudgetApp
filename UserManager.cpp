@@ -1,25 +1,15 @@
 #include "UserManager.h"
 
 UserManager::UserManager(string fileName)
-    : usersFile(fileName){
+    : usersFile(fileName) {
     users = usersFile.readUsersFromFile();
     loggedUserID = 0;
 }
 
-UserManager::~UserManager(){
+UserManager::~UserManager() {
 }
 
-void UserManager::displayAllUsers() {
-    for (unsigned int i = 0; i < users.size(); i++) {
-        cout << users[i].getID() << endl;
-        cout << users[i].getLogin() << endl;
-        cout << users[i].getPassword() << endl;
-        cout << users[i].getName() << endl;
-        cout << users[i].getSurname() << endl;
-    }
-}
-
-void UserManager::userRagistration(){
+void UserManager::userRagistration() {
     User user = passNewUserData();
     users.push_back(user);
     usersFile.saveUserInFile(user);
@@ -28,7 +18,7 @@ void UserManager::userRagistration(){
     system("pause");
 }
 
-void UserManager::userLogin(){
+void UserManager::userLogin() {
     string login = "", password = "";
     cout << "Podaj login: ";
     login = SubsidiaryMethods::readLine();
@@ -126,13 +116,13 @@ void UserManager::userLogout() {
     system("pause");
 }
 
-bool UserManager::isUserLogged(){
+bool UserManager::isUserLogged() {
     if (loggedUserID != 0)
         return true;
     else
         return false;
 }
 
-int UserManager::getLoggedUserID(){
+int UserManager::getLoggedUserID() {
     return loggedUserID;
 }

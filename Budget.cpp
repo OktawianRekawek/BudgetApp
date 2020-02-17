@@ -25,9 +25,10 @@ void Budget::userLogin() {
     system("cls");
     cout << " >>> LOGOWANIE UZYTKOWNIKA <<<" << endl << endl;
     userManager.userLogin();
-    if (userManager.isUserLogged())
+    if (userManager.isUserLogged()) {
         incomeManager = new RecordManager(INCOMES_FILENAME, userManager.getLoggedUserID());
-    expanseManager = new RecordManager(EXPANSES_FILENAME, userManager.getLoggedUserID());
+        expanseManager = new RecordManager(EXPANSES_FILENAME, userManager.getLoggedUserID());
+    }
 }
 
 void Budget::changeLoggedUserPassword() {

@@ -188,14 +188,14 @@ int Date::getDate() {
     return Date::convertDateFromStringToInt(dateString);
 }
 
-bool Date::compareDates(int firstDate, int secondDate){
+bool Date::compareDates(int firstDate, int secondDate) {
     if (firstDate <= secondDate)
         return true;
     else
         return false;
 }
 
-void Date::displayDate(int date){
+void Date::displayDate(int date) {
     cout << date/10000 << "-";
     if ((date%1000)/100 < 10)
         cout << 0;
