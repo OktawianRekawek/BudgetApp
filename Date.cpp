@@ -114,6 +114,14 @@ int Date::convertDateFromStringToInt(string dateString) {
     return date;
 }
 
+string Date::convertDateFromIntToString(int date) {
+    string stringDate = "";
+    stringDate = to_string(date);
+    stringDate.insert(4, "-");
+    stringDate.insert(7, "-");
+    return stringDate;
+}
+
 int Date::getThisYear() {
 
     time_t currentTime;

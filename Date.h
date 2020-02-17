@@ -8,6 +8,7 @@
 #include <fstream>
 #include <algorithm>
 #include <time.h>
+#include <string>
 
 #include "SubsidiaryMethods.h"
 
@@ -23,6 +24,7 @@ public:
     static bool checkDateFormat(string);
     static bool isCorrectDate(string);
     static int convertDateFromStringToInt(string);
+    static string convertDateFromIntToString(int);
     static int getThisYear();
     static int getThisMonth();
     static int getNumberOfMonthDays(int, int);
