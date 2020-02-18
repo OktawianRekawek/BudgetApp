@@ -18,6 +18,7 @@ void RecordManager::addRecord() {
     records.push_back(record);
     sortByDate();
     recordsFile.saveRecordInFile(record);
+    recordsFile.setLastRecordID(record.getRecordID());
 }
 
 Record RecordManager::passNewRecordData() {
@@ -27,13 +28,11 @@ Record RecordManager::passNewRecordData() {
     string item = "", dateString = "";
     double amount = 0;
 
-    if (records.empty())
-        record.setRecordID(1);
-    else
-        record.setRecordID(records[records.size()-1].getRecordID() + 1);
+
+    record.setRecordID(recordsFile.getLastRecordID() + 1);
     record.setUserID(LOGGED_USER_ID);
 
-    cout << "Czy wpisz dotyczy dnia dzisiejszego?" << endl;
+    cout << "Czy wpis dotyczy dnia dzisiejszego?" << endl;
     cout << "Potwierdz naciskajac klawisz 't': " << endl;
     character = SubsidiaryMethods::readChar();
     if (character == 't') {

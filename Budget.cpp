@@ -39,6 +39,10 @@ void Budget::changeLoggedUserPassword() {
 
 void Budget::userLogout() {
     userManager.userLogout();
+    delete incomeManager;
+    delete expanseManager;
+    incomeManager = NULL;
+    expanseManager = NULL;
 }
 
 void Budget::addIncome() {
